@@ -1,35 +1,17 @@
 import React from 'react';
-import { Code, Heart, Lightbulb, Target } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const About = () => {
   const { isDark } = useTheme();
 
-  const highlights = [
-    {
-      icon: Code,
-      title: "Clean Code",
-      description: "Writing maintainable, scalable, and efficient code is my passion."
-    },
-    {
-      icon: Heart,
-      title: "Problem Solver",
-      description: "I love tackling complex challenges and finding elegant solutions."
-    },
-    {
-      icon: Lightbulb,
-      title: "Continuous Learning",
-      description: "Always staying up-to-date with the latest technologies and best practices."
-    },
-    {
-      icon: Target,
-      title: "Goal Oriented",
-      description: "Focused on delivering results that exceed expectations."
-    }
-  ];
-
   return (
-    <section id="about" className={`py-20 ${isDark ? 'bg-gray-900' : 'bg-gray-50'}`}>
+    <section 
+      id="about" 
+      className={`py-20 ${isDark ? 'bg-gray-900' : ''}`}
+      style={!isDark ? {
+        background: 'linear-gradient(90deg, #fbf5f3 0%, #fbeeea 25%, #c3b2fc 60%, #805dfd 100%)'
+      } : {}}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className={`text-3xl md:text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>About Me</h2>
@@ -38,52 +20,105 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="mb-8 lg:hidden">
-              <img 
-                src="/path-to-your-about-photo.jpg" 
-                alt="Your Name working"
-                className="w-full max-w-md mx-auto rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2"
-              />
-            </div>
-            <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-6`}>My Story</h3>
-            <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} mb-6 leading-relaxed`}>
-              I'm a passionate PHP developer with a love for creating web applications that make a difference. 
-              My journey began with curiosity about how websites work, and it has evolved into a career dedicated 
-              to building robust, scalable solutions.
-            </p>
-            <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} mb-6 leading-relaxed`}>
-              With experience in modern PHP frameworks like Laravel and Symfony, I specialize in backend development 
-              while maintaining a strong understanding of frontend technologies. I believe in writing clean, 
-              maintainable code and following best practices.
-            </p>
-            <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} leading-relaxed`}>
-              When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, 
-              or sharing knowledge with the developer community.
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            <div className="hidden lg:block">
-              <img 
-                src="/path-to-your-about-photo.jpg" 
-                alt="Your Name working"
-                className="w-full rounded-lg shadow-lg mb-6 hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2"
-              />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {highlights.map((highlight, index) => (
-              <div key={index} className={`${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-100'} p-6 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 border`}>
-                <div className="flex items-center mb-4">
-                  <div className={`p-2 ${isDark ? 'bg-blue-900/50' : 'bg-blue-100'} rounded-lg group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12`}>
-                    <highlight.icon className={`h-6 w-6 ${isDark ? 'text-blue-400' : 'text-blue-600'} group-hover:text-white transition-all duration-300`} />
-                  </div>
-                  <h4 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-gray-900'} ml-3 group-hover:text-blue-600 transition-all duration-300`}>{highlight.title}</h4>
-                </div>
-                <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} text-sm leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-all duration-300`}>{highlight.description}</p>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="order-2 md:order-1 flex justify-center items-start">
+            <div className="relative w-4/5 sm:w-2/3 md:w-5/6 max-w-lg group">
+              {/* Background gradient layers - matching home page style */}
+              <div className={`absolute inset-0 bg-gradient-to-tr ${
+                isDark 
+                  ? 'from-blue-500/30 via-purple-500/20 to-pink-500/20' 
+                  : 'from-blue-300/40 via-purple-200/30 to-pink-200/30'
+              } rounded-3xl transform rotate-3 scale-105 -z-10 blur-sm`}></div>
+              <div className={`absolute inset-0 bg-gradient-to-tr ${
+                isDark 
+                  ? 'from-blue-500/20 via-purple-500/15 to-pink-500/15' 
+                  : 'from-blue-200/30 via-purple-100/20 to-pink-100/20'
+              } rounded-3xl transform -rotate-3 scale-105 -z-10 blur-sm`}></div>
+              <div className={`absolute inset-0 bg-gradient-to-br ${
+                isDark 
+                  ? 'from-blue-500/10 via-purple-500/10 to-pink-500/10' 
+                  : 'from-blue-100/20 via-purple-50/10 to-pink-50/10'
+              } rounded-3xl transform rotate-12 scale-105 -z-10`}></div>
+              
+              {/* Main image with border and shadow */}
+              <div className="relative rounded-3xl overflow-hidden border-4 border-white/10 transition-all duration-500 group-hover:shadow-xl group-hover:shadow-blue-500/20">
+                <img 
+                  src="/about3.png" 
+                  alt="Ganesh Ghorai"
+                  className="w-full h-auto transition-all duration-500 transform group-hover:scale-105"
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)',
+                    transition: 'all 0.5s ease-out',
+                    willChange: 'transform, box-shadow, filter'
+                  }}
+                  onMouseMove={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+                    e.currentTarget.style.transform = `perspective(1000px) rotateY(${x * 3}deg) rotateX(${-y * 3}deg)`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+                  }}
+                />
               </div>
-            ))}
+            </div>
+          </div>
+          <div className="order-1 md:order-2">
+            <div className={`p-6 sm:p-8 rounded-2xl ${isDark ? 'bg-gray-800/40 backdrop-blur-sm' : 'bg-white/80 backdrop-blur-sm shadow-lg'}`}>
+              <h3 className={`text-3xl font-bold mb-6 relative inline-block ${
+                isDark ? 'text-white' : 'text-gray-900'
+              }`}>
+                My Story
+                <span className={`absolute bottom-0 left-0 w-1/3 h-1 rounded-full ${
+                  isDark ? 'bg-gradient-to-r from-blue-400 to-purple-500' : 'bg-gradient-to-r from-blue-500 to-purple-600'
+                }`}></span>
+              </h3>
+              
+              <div className={`space-y-6 leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                <div className="relative pl-6 border-l-2 border-blue-400/30">
+                  <div className={`absolute w-4 h-4 rounded-full -left-2 top-1.5 ${
+                    isDark ? 'bg-blue-400' : 'bg-blue-500'
+                  }`}></div>
+                  <p className="text-lg">
+                    I started my journey in technology when I began my B.Tech in Computer Science and Engineering with a specialization in Cyber Security. During the early years, I worked on a few projects in the field of cyber security, which gave me a solid foundation in problem-solving and secure systems.
+                  </p>
+                </div>
+                
+                <div className="relative pl-6 border-l-2 border-purple-400/30">
+                  <div className={`absolute w-4 h-4 rounded-full -left-2 top-1.5 ${
+                    isDark ? 'bg-purple-400' : 'bg-purple-500'
+                  }`}></div>
+                  <p>
+                    By the time I reached my 3rd year, I discovered my real passion—<span className={`font-medium ${isDark ? 'text-blue-300' : 'text-blue-600'}`}>web development</span>. I dove deep into this field, experimenting, learning, and building projects that helped me grow as a developer. Over time, I found my focus in <span className={`font-medium ${isDark ? 'text-purple-300' : 'text-purple-600'}`}>PHP</span> and chose <span className={`font-medium ${isDark ? 'text-purple-300' : 'text-purple-600'}`}>Laravel</span> as my primary framework.
+                  </p>
+                </div>
+                
+                <div className="relative pl-6 border-l-2 border-indigo-400/30">
+                  <div className={`absolute w-4 h-4 rounded-full -left-2 top-1.5 ${
+                    isDark ? 'bg-indigo-400' : 'bg-indigo-500'
+                  }`}></div>
+                  <p>
+                    Since then, I've built <span className={`font-medium ${isDark ? 'text-indigo-300' : 'text-indigo-600'}`}>two major projects</span> with Laravel, gaining hands-on experience in developing robust, scalable web applications. Every project I take on is not just about writing code but about learning, improving, and creating solutions that make an impact.
+                  </p>
+                </div>
+                
+                <div className="relative pl-6 border-l-2 border-pink-400/30">
+                  <div className={`absolute w-4 h-4 rounded-full -left-2 top-1.5 ${
+                    isDark ? 'bg-pink-400' : 'bg-pink-500'
+                  }`}></div>
+                  <p>
+                    Outside of coding, I'm always exploring new technologies, experimenting with fresh ideas, and pushing myself to become a better developer every day.
+                  </p>
+                </div>
+              </div>
+              
+              <div className={`mt-8 pt-6 border-t ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
+                <p className={`text-sm italic ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                  "Turning ideas into reality, one line of code at a time."
+                </p>
+              </div>
             </div>
           </div>
         </div>

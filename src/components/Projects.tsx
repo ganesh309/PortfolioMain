@@ -7,24 +7,47 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-featured e-commerce platform built with Laravel, featuring user authentication, payment integration, order management, and admin dashboard.",
-      image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["Laravel", "MySQL", "Bootstrap", "Stripe API"],
-      features: ["User Authentication", "Payment Gateway", "Order Management", "Admin Panel"],
-      github: "#",
-      live: "#",
-      date: "2023"
+      title: "Academic Guidance System (MentorMate)",
+      description: "A Laravel-based web application designed to facilitate seamless mentorship between faculty members and students. It helps institutions assign mentors to students—especially those with academic challenges—and provides a structured way to monitor student progress, facilitate communication, and maintain mentorship records.",
+      image: "/mentormentee.png",
+      technologies: ["Laravel 9", "MySQL", "Bootstrap", "jQuery", "PHP"],
+      features: [
+        "🔐 Admin Authentication (Email/Password)",
+        "🌍 Dynamic Address Selection (Country/State/District)",
+        "📉 Data Visualization for Attendance",
+        "📉 Automatic Mentee Assignment (Low SGPA)",
+        "🧑‍🏫 Mentor Assignment & Reassignment",
+        "📋 Mentor & Mentee Management",
+        "📤 Secure Credential Storage (SHA-256)",
+        "📬 Email-based Password Reset (OTP)",
+        "🔍 Advanced Search & Filtering",
+        "📊 Dashboard Analytics"
+      ],
+      github: "https://github.com/ganesh309/Academic_Guidance_System",
+      live: "https://www.loom.com/share/736c22df4aaf4b5ab00648e1dd1d9d70?sid=ba24b1df-17aa-4055-9bc1-5a323da8dc20",
+      date: "2025"
     },
     {
-      title: "Task Management System",
-      description: "A collaborative task management application with real-time updates, file sharing, and team collaboration features built with PHP and WebSocket.",
-      image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["PHP", "WebSocket", "MySQL", "JavaScript"],
-      features: ["Real-time Updates", "File Sharing", "Team Collaboration", "Task Tracking"],
-      github: "#",
-      live: "#",
-      date: "2023"
+      title: "University Management System",
+      description: "An integrated platform built with Laravel to simplify student enrollment, financial tracking, and administrative tasks. It provides multi-step registration, hierarchical address mapping, advanced search, fee scheduling, and secure authentication with optional two-factor verification for enhanced security.",
+      image: "https://images.pexels.com/photos/159775/library-la-trobe-study-students-159775.jpeg?auto=compress&cs=tinysrgb&w=800",
+      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "jQuery", "CSS"],
+      features: [
+        "👥 User & Role-based Access Control",
+        "🎓 Student Enrollment & Management",
+        "🏛️ College & Department Management",
+        "💰 Fee Structure & Payment Processing",
+        "📚 Subject Allocation & Management",
+        "📊 Marks Entry & Result Publication",
+        "⏰ Automated Due & Late Fee Calculation",
+        "🔍 Advanced Search & Reporting",
+        "📧 Forgot Password with OTP & Reset Link",
+        "🖼️ Image Upload with Cropping",
+        "📈 Department-wise Data Visualization"
+      ],
+      github: "https://github.com/ganesh309/University_Management_System",
+      live: "https://www.loom.com/share/87ea23ec7387480a88d0e58837b497d4?sid=53e029f0-90fd-466c-8e2d-ba68e6dd1cc7",
+      date: "2025"
     },
     {
       title: "Blog Management System",
@@ -49,12 +72,20 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className={`py-20 ${isDark ? 'bg-gray-900' : 'bg-white'}`}>
+    <section 
+      id="projects" 
+      className={`py-20 ${isDark ? 'bg-gray-900' : ''}`}
+      style={!isDark ? {
+        background: 'linear-gradient(90deg, #fbf5f3 0%, #fbeeea 25%, #c3b2fc 60%, #805dfd 100%)'
+      } : {}}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className={`text-3xl md:text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>Featured Projects</h2>
+          <h2 className={`text-3xl md:text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>
+            Featured Projects
+          </h2>
           <p className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
-            A showcase of my recent work and personal projects
+            A collection of my recent work and contributions
           </p>
         </div>
 

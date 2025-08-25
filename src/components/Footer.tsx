@@ -1,12 +1,16 @@
 import React from 'react';
-import { Code, Heart, ArrowUp } from 'lucide-react';
+import { Code, Heart } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Footer = () => {
   const { isDark } = useTheme();
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   return (
@@ -28,12 +32,60 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 hover:text-blue-400 transition-all duration-300">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-gray-300 hover:text-white hover:translate-x-2 hover:text-blue-400 transition-all duration-300 inline-block">About</a></li>
-              <li><a href="#journey" className="text-gray-300 hover:text-white hover:translate-x-2 hover:text-blue-400 transition-all duration-300 inline-block">Journey</a></li>
-              <li><a href="#skills" className="text-gray-300 hover:text-white hover:translate-x-2 hover:text-blue-400 transition-all duration-300 inline-block">Skills</a></li>
-              <li><a href="#projects" className="text-gray-300 hover:text-white hover:translate-x-2 hover:text-blue-400 transition-all duration-300 inline-block">Projects</a></li>
-              <li><a href="#experience" className="text-gray-300 hover:text-white hover:translate-x-2 hover:text-blue-400 transition-all duration-300 inline-block">Experience</a></li>
-              <li><a href="#contact" className="text-gray-300 hover:text-white hover:translate-x-2 hover:text-blue-400 transition-all duration-300 inline-block">Contact</a></li>
+              <li>
+                <a 
+                  href="#about" 
+                  onClick={(e) => scrollToSection(e, 'about')}
+                  className="text-gray-300 hover:text-white hover:translate-x-2 hover:text-blue-400 transition-all duration-300 inline-block"
+                >
+                  About
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#journey" 
+                  onClick={(e) => scrollToSection(e, 'journey')}
+                  className="text-gray-300 hover:text-white hover:translate-x-2 hover:text-blue-400 transition-all duration-300 inline-block"
+                >
+                  Journey
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#skills" 
+                  onClick={(e) => scrollToSection(e, 'skills')}
+                  className="text-gray-300 hover:text-white hover:translate-x-2 hover:text-blue-400 transition-all duration-300 inline-block"
+                >
+                  Skills
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#projects" 
+                  onClick={(e) => scrollToSection(e, 'projects')}
+                  className="text-gray-300 hover:text-white hover:translate-x-2 hover:text-blue-400 transition-all duration-300 inline-block"
+                >
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#experience" 
+                  onClick={(e) => scrollToSection(e, 'experience')}
+                  className="text-gray-300 hover:text-white hover:translate-x-2 hover:text-blue-400 transition-all duration-300 inline-block"
+                >
+                  Experience
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#contact" 
+                  onClick={(e) => scrollToSection(e, 'contact')}
+                  className="text-gray-300 hover:text-white hover:translate-x-2 hover:text-blue-400 transition-all duration-300 inline-block"
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -44,6 +96,7 @@ const Footer = () => {
             </p>
             <a 
               href="#contact"
+              onClick={(e) => scrollToSection(e, 'contact')}
               className="bg-blue-600 hover:bg-blue-700 hover:scale-105 hover:shadow-lg px-6 py-2 rounded-lg transition-all duration-300 inline-block group"
             >
               <span className="group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-blue-200 group-hover:bg-clip-text transition-all duration-300">Get In Touch</span>
@@ -55,22 +108,13 @@ const Footer = () => {
           <div className="flex items-center text-gray-300 mb-4 md:mb-0">
             <span>Made with</span>
             <Heart className="h-4 w-4 text-red-500 mx-2 hover:scale-125 hover:text-red-400 transition-all duration-300 animate-pulse" />
-            <span>by Your Name</span>
+            <span>by Ganesh</span>
           </div>
           <div className="text-gray-300 hover:text-gray-200 transition-all duration-300">
-            <span>© 2024 All rights reserved.</span>
+            <span>© 2025 All rights reserved.</span>
           </div>
         </div>
       </div>
-
-      {/* Back to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className="absolute bottom-8 right-8 bg-blue-600 hover:bg-blue-700 hover:scale-110 hover:rotate-12 p-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-2xl group"
-        aria-label="Back to top"
-      >
-        <ArrowUp className="h-6 w-6 group-hover:scale-110 transition-all duration-300" />
-      </button>
     </footer>
   );
 };

@@ -8,32 +8,38 @@ const Journey = () => {
   const education = [
     {
       icon: GraduationCap,
-      title: "Bachelor's in Computer Science",
-      institution: "Your University",
-      period: "2018 - 2022",
-      description: "Focused on software engineering principles, algorithms, and web development technologies.",
-      achievements: ["Dean's List", "Best Project Award", "3.8 GPA"]
+      title: "Secondary Examination",
+      institution: "Mabarakpur A. M. Sc. High School",
+      period: "2019",
+      description: "Completed secondary education with strong academic performance.",
+      achievements: ["84.14%", "Academic Excellence", "Science & Mathematics Focus"]
     },
     {
-      icon: Award,
-      title: "PHP Certification",
-      institution: "Zend Technologies",
-      period: "2021",
-      description: "Certified PHP Developer with expertise in modern PHP practices and frameworks.",
-      achievements: ["95% Score", "Advanced Level"]
+      icon: GraduationCap,
+      title: "Higher Secondary Examination",
+      institution: "Mabarakpur A. M. Sc. High School",
+      period: "2019 – 2021",
+      description: "Focused on the Science stream with a strong foundation in Physics, Chemistry, and Mathematics.",
+      achievements: ["87.6%", "Science Stream"]
     },
     {
-      icon: BookOpen,
-      title: "Web Development Bootcamp",
-      institution: "Online Academy",
-      period: "2020",
-      description: "Intensive full-stack development course covering modern web technologies.",
-      achievements: ["Top 10% Graduate", "Final Project Excellence"]
+      icon: GraduationCap,
+      title: "B.Tech in Computer Science & Engineering (Cyber Security Specialization)",
+      institution: "The Neotia University",
+      period: "2021 – 2025",
+      description: "In-depth study of computer science, software engineering, cybersecurity principles and Web Development.",
+      achievements: ["Current GPA: 8.49", "Cyber Security Projects", "Web Development Projects"]
     }
   ];
 
   return (
-    <section id="journey" className={`py-20 ${isDark ? 'bg-gray-900' : 'bg-white'}`}>
+    <section 
+      id="journey" 
+      className={`py-20 ${isDark ? 'bg-gray-900' : ''}`}
+      style={!isDark ? {
+        background: 'linear-gradient(90deg, #fbf5f3 0%, #fbeeea 25%, #c3b2fc 60%, #805dfd 100%)'
+      } : {}}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className={`text-3xl md:text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>My Journey</h2>
