@@ -44,12 +44,15 @@ const Hero = () => {
           <div className="flex flex-col lg:flex-row items-center lg:items-start">
             {/* Left Column - Content */}
             <div className="w-full lg:w-1/2 order-2 lg:order-1 mt-8 lg:mt-0">
+              <div className="sr-only">
+                <h1>Ganesh Ghorai - PHP & Full Stack Developer</h1>
+              </div>
               <p className="text-blue-400 text-2xl md:text-3xl mb-1 font-medium font-display">
                 Hi, My Name is,
               </p>
-              <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white font-display">
+              <div className="text-5xl md:text-7xl font-bold mb-4 text-white font-display">
                 Ganesh <Typewriter text="Ghorai" className="inline text-blue-300" />
-              </h1>
+              </div>
               
               <p className="text-xl md:text-2xl mb-6 text-blue-100 font-medium font-display">
                 Computer Science Engineer | Backend Developer
