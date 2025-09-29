@@ -1,27 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
    <url>
       <loc>https://www.ganeshghorai.in/</loc>
       <lastmod>2025-08-26</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
+      <image:image>
+         <image:loc>https://www.ganeshghorai.in/ganesh.jpg</image:loc>
+         <image:caption>Portrait of Ganesh Ghorai</image:caption>
+         <image:title>Ganesh Ghorai</image:title>
+      </image:image>
    </url>
    <url>
       <loc>https://www.ganeshghorai.in/about</loc>
       <lastmod>2025-08-26</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
+      <image:image>
+         <image:loc>https://www.ganeshghorai.in/ganesh.jpg</image:loc>
+         <image:caption>Portrait of Ganesh Ghorai</image:caption>
+         <image:title>Ganesh Ghorai</image:title>
+      </image:image>
    </url>
    <url>
       <loc>https://www.ganeshghorai.in/projects</loc>
       <lastmod>2025-08-26</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
+      <image:image>
+         <image:loc>https://www.ganeshghorai.in/ganesh.jpg</image:loc>
+         <image:caption>Portrait of Ganesh Ghorai</image:caption>
+         <image:title>Ganesh Ghorai</image:title>
+      </image:image>
    </url>
    <url>
       <loc>https://www.ganeshghorai.in/contact</loc>
       <lastmod>2025-08-26</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
+      <image:image>
+         <image:loc>https://www.ganeshghorai.in/ganesh.jpg</image:loc>
+         <image:caption>Portrait of Ganesh Ghorai</image:caption>
+         <image:title>Ganesh Ghorai</image:title>
+      </image:image>
    </url>
 </urlset>
