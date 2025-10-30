@@ -2,6 +2,7 @@ import { MapPin, Mail, Phone, Download } from 'lucide-react';
 import Typewriter from './Typewriter';
 import { useTheme } from '../contexts/ThemeContext';
 import TechBackground from './TechBackground';
+import { useEffect, useRef } from 'react';
 
 const Hero = () => {
   const scrollToProjects = (e?: React.MouseEvent) => {
@@ -30,16 +31,27 @@ const Hero = () => {
   useTheme(); // Using theme context for potential future use
 
   return (
-    <section className="min-h-screen relative pt-20">
-      {/* 3D Tech Background */}
-      <TechBackground />
+    <section className="min-h-screen relative pt-20 overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="./home_video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
       
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent dark:via-black/50 dark:to-black/80 pointer-events-none"></div>
       
       {/* Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-        <div className="backdrop-blur-lg bg-white/10 dark:bg-black/20 rounded-3xl p-8 md:p-12 shadow-2xl ring-1 ring-white/10 dark:ring-white/5 w-full mb-12">
+        <div className="dark:bg-black/20 rounded-3xl p-8 md:p-12 shadow-2xl ring-1 ring-white/10 dark:ring-white/5 w-full mb-12">
           <div className="flex flex-col lg:flex-row items-center lg:items-start">
             {/* Left Column - Content */}
             <div className="w-full lg:w-1/2 order-2 lg:order-1 mt-8 lg:mt-0">
@@ -126,8 +138,18 @@ const Hero = () => {
             {/* Right Column - Image */}
             <div className="w-full lg:w-1/2 flex justify-center order-1 lg:order-2 mt-8 lg:mt-0 lg:pl-12">
               <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl xl:max-w-3xl relative">
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-2xl transform rotate-6 scale-105 -z-10"></div>
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-purple-500/10 rounded-2xl transform -rotate-6 scale-105 -z-10"></div>
+                <div 
+                  className="absolute inset-0 rounded-2xl transform rotate-6 scale-105 -z-10"
+                  style={{
+                    background: 'linear-gradient(to top right, rgba(211, 126, 126, 0.15), rgba(255, 255, 255, 0.07))'
+                  }}
+                ></div>
+                <div 
+                  className="absolute inset-0 rounded-2xl transform -rotate-6 scale-105 -z-10"
+                  style={{
+                    background: 'linear-gradient(to top right, rgba(35, 33, 33, 0.54), rgba(255, 255, 255, 0.035))'
+                  }}
+                ></div>
                 <img 
                   src="/portfoliomain1.png" 
                   alt="Ganesh Ghorai - Portfolio"

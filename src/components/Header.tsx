@@ -70,8 +70,8 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-[#0f172a] border-b border-gray-800/50 backdrop-blur-xl shadow-2xl' 
-        : 'bg-[#0f172a] border-b border-gray-800/50 backdrop-blur-sm'
+        ? 'bg-transparent border-b border-gray-800/30 backdrop-blur-md shadow-lg' 
+        : 'bg-transparent border-b border-transparent backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -82,7 +82,7 @@ const Header = () => {
                 className="focus:outline-none"
               >
                 <img 
-                  src="/logo.png" 
+                  src="/logo2.png" 
                   alt="Home" 
                   className={`h-10 w-10 transition-all duration-300 ${
                     isScrolled ? (isDark ? 'opacity-90' : 'opacity-90') : 'opacity-90'

@@ -10,60 +10,34 @@ const Skills = () => {
       icon: Code,
       title: "Programming Languages",
       skills: [
-        { name: "PHP", level: 95 },
-        { name: "JavaScript", level: 85 },
-        { name: "C", level: 75 },
-        { name: "Java", level: 70 }
-      ]
-    },
-    {
-      icon: Server,
-      title: "Frameworks & Libraries",
-      skills: [
-        { name: "Laravel", level: 90 },
-        { name: "Symfony", level: 80 },
-        { name: "React", level: 75 },
-        { name: "Vue.js", level: 70 }
-      ]
-    },
-    {
-      icon: Database,
-      title: "Databases",
-      skills: [
-        { name: "MySQL", level: 90 },
-        { name: "PostgreSQL", level: 85 },
-        { name: "MongoDB", level: 75 },
-        { name: "Redis", level: 80 }
+        { name: "C", level: 80 },
+        { name: "Java (OOP)", level: 85 },
+        { name: "PHP", level: 90 },
+        { name: "JavaScript", level: 85 }
       ]
     },
     {
       icon: Wrench,
       title: "Tools & Technologies",
       skills: [
-        { name: "Git", level: 90 },
-        { name: "Docker", level: 85 },
-        { name: "AWS", level: 70 },
-        { name: "Linux", level: 80 }
+        { name: "Linux", level: 85 },
+        { name: "Docker", level: 80 },
+        { name: "Git", level: 90 }
       ]
     },
     {
-      icon: Globe,
-      title: "Web Technologies",
+      icon: Server,
+      title: "Frameworks",
       skills: [
-        { name: "HTML/CSS", level: 90 },
-        { name: "REST APIs", level: 95 },
-        { name: "GraphQL", level: 75 },
-        { name: "WebSockets", level: 70 }
+        { name: "Laravel", level: 90 },
+        { name: "React", level: 85 }
       ]
     },
     {
-      icon: Zap,
-      title: "Other Skills",
+      icon: Database,
+      title: "Databases",
       skills: [
-        { name: "Problem Solving", level: 95 },
-        { name: "Team Leadership", level: 80 },
-        { name: "Agile/Scrum", level: 85 },
-        { name: "Testing", level: 85 }
+        { name: "MySQL", level: 90 }
       ]
     }
   ];
@@ -86,7 +60,7 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category, index) => (
             <div key={index} className={`${isDark ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-100'} p-6 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer border hover:border-blue-200`}>
               <div className="flex items-center mb-6">
