@@ -1,6 +1,7 @@
 import React from 'react';
 import { Code, Heart } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import ParticlesBackground from './ParticlesBackground';
 
 const Footer = () => {
   const { isDark } = useTheme();
@@ -14,14 +15,20 @@ const Footer = () => {
   };
 
   return (
-    <footer className={`${isDark ? 'bg-black' : 'bg-gray-900'} text-white py-12 relative`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="text-white py-12 relative overflow-hidden" style={{ backgroundColor: 'rgb(12 9 13)', position: 'relative' }}>
+      {/* Particles Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <ParticlesBackground />
+      </div>
+      
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center mb-4">
               <div className="group flex items-center">
                 <Code className="h-8 w-8 text-blue-400 group-hover:text-blue-300 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300" />
-                <span className="ml-2 text-xl font-bold group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300">Your Portfolio</span>
+                <span className="ml-2 text-xl font-bold group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300">Ganesh Ghorai</span>
               </div>
             </div>
             <p className="text-gray-300 leading-relaxed hover:text-gray-200 transition-all duration-300">

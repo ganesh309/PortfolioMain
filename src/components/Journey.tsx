@@ -1,6 +1,7 @@
 import React from 'react';
 import { GraduationCap, Award, BookOpen } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import ParticlesBackground from './ParticlesBackground';
 
 const Journey = () => {
   const { isDark } = useTheme();
@@ -35,15 +36,21 @@ const Journey = () => {
   return (
     <section 
       id="journey" 
-      className={`py-20 ${isDark ? 'bg-gray-900' : ''}`}
-      style={!isDark ? {
-        background: 'linear-gradient(90deg, #fbf5f3 0%, #fbeeea 25%, #c3b2fc 60%, #805dfd 100%)'
-      } : {}}
+      className="py-20 min-h-screen relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(26, 11, 30) 25%, rgb(27, 16, 31) 60%, rgb(0, 0, 0) 100%)',
+        position: 'relative',
+        zIndex: 1
+      }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ParticlesBackground />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className={`text-3xl md:text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>My Journey</h2>
-          <p className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            My <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Journey</span>
+          </h2>
+          <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full"></div>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             The educational path that shaped my development career
           </p>
         </div>
@@ -61,28 +68,28 @@ const Journey = () => {
 
               {/* Content */}
               <div className={`w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
-                <div className={`${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-100'} p-6 rounded-lg shadow-lg border hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer`}>
+                <div className="bg-[#170a1b] border border-purple-900/50 p-6 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer">
                   <div className="flex items-center mb-4">
-                    <div className={`p-3 ${isDark ? 'bg-blue-900/50' : 'bg-blue-100'} rounded-lg group-hover:bg-blue-600 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12`}>
-                      <item.icon className={`h-6 w-6 ${isDark ? 'text-blue-400' : 'text-blue-600'} group-hover:text-white transition-all duration-300`} />
+                    <div className="p-3 bg-purple-900/50 rounded-lg group-hover:bg-purple-600 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+                      <item.icon className="h-6 w-6 text-purple-400 group-hover:text-white transition-all duration-300" />
                     </div>
                     <div className="ml-4">
-                      <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-gray-900'} group-hover:text-blue-600 transition-all duration-300`}>{item.title}</h3>
-                      <p className={`${isDark ? 'text-blue-400' : 'text-blue-600'} font-medium group-hover:text-purple-600 transition-all duration-300`}>{item.institution}</p>
+                      <h3 className="text-lg font-semibold text-white group-hover:text-purple-400 transition-all duration-300">{item.title}</h3>
+                      <p className="text-purple-300 font-medium group-hover:text-purple-200 transition-all duration-300">{item.institution}</p>
                     </div>
                   </div>
                   
                   <div className="mb-4">
-                    <span className={`inline-block ${isDark ? 'bg-blue-900/50 text-blue-300' : 'bg-blue-100 text-blue-800'} text-sm px-3 py-1 rounded-full group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:text-white transition-all duration-300`}>
+                    <span className="inline-block bg-purple-900/50 text-purple-200 text-sm px-3 py-1 rounded-full group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-purple-800 group-hover:text-white transition-all duration-300">
                       {item.period}
                     </span>
                   </div>
                   
-                  <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} mb-4 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-all duration-300`}>{item.description}</p>
+                  <p className="text-gray-300 mb-4 leading-relaxed group-hover:text-gray-100 transition-all duration-300">{item.description}</p>
                   
                   <div className="flex flex-wrap gap-2">
                     {item.achievements.map((achievement, i) => (
-                      <span key={i} className={`inline-block ${isDark ? 'bg-green-900/50 text-green-300' : 'bg-green-100 text-green-800'} text-xs px-2 py-1 rounded-full group-hover:bg-green-600 group-hover:text-white group-hover:scale-105 transition-all duration-300`}>
+                      <span key={i} className="inline-block bg-purple-900/50 text-purple-300 text-xs px-2 py-1 rounded-full group-hover:bg-purple-600 group-hover:text-white group-hover:scale-105 transition-all duration-300">
                         {achievement}
                       </span>
                     ))}

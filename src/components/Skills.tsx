@@ -1,6 +1,7 @@
 import React from 'react';
 import { Code, Database, Globe, Server, Wrench, Zap } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import ParticlesBackground from './ParticlesBackground';
 
 const Skills = () => {
   const { isDark } = useTheme();
@@ -45,41 +46,45 @@ const Skills = () => {
   return (
     <section 
       id="skills" 
-      className={`py-20 ${isDark ? 'bg-gray-900' : ''}`}
-      style={!isDark ? {
-        background: 'linear-gradient(90deg, #fbf5f3 0%, #fbeeea 25%, #c3b2fc 60%, #805dfd 100%)'
-      } : {}}
+      className="py-20 min-h-screen relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(26, 11, 30) 25%, rgb(27, 16, 31) 60%, rgb(0, 0, 0) 100%)',
+        position: 'relative',
+        zIndex: 1
+      }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ParticlesBackground />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className={`text-3xl md:text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>
-            My Skills & Expertise
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            My <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Skills</span> & <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">Expertise</span>
           </h2>
-          <p className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
+          <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full"></div>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Technologies and tools I work with
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category, index) => (
-            <div key={index} className={`${isDark ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-100'} p-6 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer border hover:border-blue-200`}>
+            <div key={index} className="bg-[#1a0b1e] border border-purple-900/50 p-6 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer hover:border-purple-500/50">
               <div className="flex items-center mb-6">
-                <div className={`p-3 ${isDark ? 'bg-blue-900/50' : 'bg-blue-100'} rounded-lg group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12`}>
-                  <category.icon className={`h-6 w-6 ${isDark ? 'text-blue-400' : 'text-blue-600'} group-hover:text-white transition-all duration-300`} />
+                <div className="p-3 bg-purple-900/50 rounded-lg group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-purple-800 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+                  <category.icon className="h-6 w-6 text-purple-400 group-hover:text-white transition-all duration-300" />
                 </div>
-                <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-gray-900'} ml-3 group-hover:text-blue-600 transition-all duration-300`}>{category.title}</h3>
+                <h3 className="text-lg font-semibold text-white ml-3 group-hover:text-purple-400 transition-all duration-300">{category.title}</h3>
               </div>
 
               <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="group/skill">
                     <div className="flex justify-between items-center mb-2">
-                      <span className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} group-hover:text-gray-900 dark:group-hover:text-white transition-all duration-300`}>{skill.name}</span>
-                      <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-500'} group-hover:text-blue-600 group-hover:font-semibold transition-all duration-300`}>{skill.level}%</span>
+                      <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-all duration-300">{skill.name}</span>
+                      <span className="text-sm text-purple-300 group-hover:text-white group-hover:font-semibold transition-all duration-300">{skill.level}%</span>
                     </div>
-                    <div className={`w-full ${isDark ? 'bg-gray-700' : 'bg-gray-200'} rounded-full h-2 group-hover:h-3 transition-all duration-300 overflow-hidden relative`}>
+                    <div className="w-full bg-gray-800 rounded-full h-2 group-hover:h-3 transition-all duration-300 overflow-hidden relative">
                       <div 
-                        className="bg-gradient-to-r from-blue-500 to-purple-600 h-full rounded-full transition-all duration-1000 ease-out group-hover:shadow-lg group-hover:from-blue-600 group-hover:to-purple-700 relative overflow-hidden"
+                        className="bg-gradient-to-r from-purple-500 to-purple-600 h-full rounded-full transition-all duration-1000 ease-out group-hover:shadow-lg group-hover:from-purple-600 group-hover:to-purple-700 relative overflow-hidden"
                         style={{ width: `${skill.level}%` }}
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 animate-wave"></div>
