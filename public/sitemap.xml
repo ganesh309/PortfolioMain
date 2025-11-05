@@ -15,7 +15,7 @@
         <priority>1.0</priority>
         <image:image>
             <image:loc>https://www.ganeshghorai.in/ganesh.jpg</image:loc>
-            <image:caption>Ganesh Ghorai - PHP & Full Stack Developer</image:caption>
+            <image:caption>Ganesh Ghorai - PHP &amp; Full Stack Developer</image:caption>
             <image:title>Ganesh Ghorai - Portfolio</image:title>
             <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
         </image:image>
