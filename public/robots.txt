@@ -1,4 +1,30 @@
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
+Allow: /#/
+Disallow: /api/
+Disallow: /private/
+Disallow: /admin/
 
+# Sitemaps
 Sitemap: https://www.ganeshghorai.in/sitemap.xml
+
+# Crawl-delay: 10
+
+# Google-specific
+User-agent: Googlebot
+Allow: /*.js
+Allow: /*.css
+
+# Bing-specific
+User-agent: bingbot
+Allow: /*.js
+Allow: /*.css
+
+# Twitter bot
+User-agent: Twitterbot
+Allow: /*
+
+# Facebook bot
+User-agent: facebookexternalhit
+Allow: /*

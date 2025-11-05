@@ -1,48 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-   <url>
-      <loc>https://www.ganeshghorai.in/</loc>
-      <lastmod>2025-08-26</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-      <image:image>
-         <image:loc>https://www.ganeshghorai.in/ganesh.jpg</image:loc>
-         <image:caption>Portrait of Ganesh Ghorai</image:caption>
-         <image:title>Ganesh Ghorai</image:title>
-      </image:image>
-   </url>
-   <url>
-      <loc>https://www.ganeshghorai.in/about</loc>
-      <lastmod>2025-08-26</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-      <image:image>
-         <image:loc>https://www.ganeshghorai.in/ganesh.jpg</image:loc>
-         <image:caption>Portrait of Ganesh Ghorai</image:caption>
-         <image:title>Ganesh Ghorai</image:title>
-      </image:image>
-   </url>
-   <url>
-      <loc>https://www.ganeshghorai.in/projects</loc>
-      <lastmod>2025-08-26</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-      <image:image>
-         <image:loc>https://www.ganeshghorai.in/ganesh.jpg</image:loc>
-         <image:caption>Portrait of Ganesh Ghorai</image:caption>
-         <image:title>Ganesh Ghorai</image:title>
-      </image:image>
-   </url>
-   <url>
-      <loc>https://www.ganeshghorai.in/contact</loc>
-      <lastmod>2025-08-26</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-      <image:image>
-         <image:loc>https://www.ganeshghorai.in/ganesh.jpg</image:loc>
-         <image:caption>Portrait of Ganesh Ghorai</image:caption>
-         <image:title>Ganesh Ghorai</image:title>
-      </image:image>
-   </url>
+<urlset 
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    
+    <!-- Home -->
+    <url>
+        <loc>https://www.ganeshghorai.in/</loc>
+        <lastmod>2025-11-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://www.ganeshghorai.in/ganesh.jpg</image:loc>
+            <image:caption>Ganesh Ghorai - PHP & Full Stack Developer</image:caption>
+            <image:title>Ganesh Ghorai - Portfolio</image:title>
+            <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
+        </image:image>
+        <!-- Alternative URLs -->
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.ganeshghorai.in/" />
+    </url>
+    
+    <!-- About Section -->
+    <url>
+        <loc>https://www.ganeshghorai.in/#about</loc>
+        <lastmod>2025-11-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://www.ganeshghorai.in/ganesh.jpg</image:loc>
+            <image:caption>About Ganesh Ghorai - PHP & Full Stack Developer</image:caption>
+            <image:title>About Ganesh Ghorai</image:title>
+            <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
+        </image:image>
+    </url>
+    
+    <!-- Projects Section -->
+    <url>
+        <loc>https://www.ganeshghorai.in/#projects</loc>
+        <lastmod>2025-11-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://www.ganeshghorai.in/ganesh.jpg</image:loc>
+            <image:caption>Projects by Ganesh Ghorai - Web Development Portfolio</image:caption>
+            <image:title>Ganesh's Projects</image:title>
+            <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
+        </image:image>
+    </url>
+    
+    <!-- Contact Section -->
+    <url>
+        <loc>https://www.ganeshghorai.in/#contact</loc>
+        <lastmod>2025-11-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://www.ganeshghorai.in/ganesh.jpg</image:loc>
+            <image:caption>Contact Ganesh Ghorai - Get in Touch</image:caption>
+            <image:title>Contact Ganesh Ghorai</image:title>
+            <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
+        </image:image>
+    </url>
+    
+    <!-- Experience Section -->
+    <url>
+        <loc>https://www.ganeshghorai.in/#experience</loc>
+        <lastmod>2025-11-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Skills Section -->
+    <url>
+        <loc>https://www.ganeshghorai.in/#skills</loc>
+        <lastmod>2025-11-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 </urlset>

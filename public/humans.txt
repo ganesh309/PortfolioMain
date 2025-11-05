@@ -1,0 +1,22 @@
+/* TEAM */
+Ganesh Ghorai
+Site: https://www.ganeshghorai.in
+Location: India
+
+/* THANKS */
+Thanks for visiting my portfolio! I'm a passionate PHP & Full Stack Developer.
+
+/* SITE */
+Last update: 2025/11/05
+Standards: HTML5, CSS3, JavaScript (ES6+)
+Components: React, Vite, TypeScript
+Software: Visual Studio Code
+
+/* SOCIAL */
+Twitter: @GaneshGhor57158
+GitHub: ganesh309
+LinkedIn: ganesh-ghorai-482407243
+Instagram: lucifer_626
+
+/* GOOGLE SEARCH CONSOLE */
+Google Search Console Verification: YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE
