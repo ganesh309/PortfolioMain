@@ -31,7 +31,7 @@
         <priority>0.9</priority>
         <image:image>
             <image:loc>https://www.ganeshghorai.in/ganesh.jpg</image:loc>
-            <image:caption>About Ganesh Ghorai - PHP & Full Stack Developer</image:caption>
+            <image:caption>About Ganesh Ghorai - PHP &amp; Full Stack Developer</image:caption>
             <image:title>About Ganesh Ghorai</image:title>
             <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
         </image:image>
