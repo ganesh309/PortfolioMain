@@ -1,102 +1,139 @@
-import React from 'react';
-import { GraduationCap, Award, BookOpen } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { MapPin, Calendar, Award } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import ParticlesBackground from './ParticlesBackground';
+import EnergyBeamCanvas from './EnergyBeamCanvas';
 
 const Journey = () => {
-  const { isDark } = useTheme();
+  useTheme();
 
   const education = [
     {
-      icon: GraduationCap,
+      id: 1,
       title: "Secondary Examination",
-      institution: "Mabarakpur A. M. Sc. High School",
+      school: "Mabarakpur A. M. Sc. High School",
       period: "2019",
-      description: "Completed secondary education with strong academic performance.",
-      achievements: ["84.14%", "Academic Excellence", "Science & Mathematics Focus"]
+      desc: "Completed secondary education with strong academic performance.",
+      grades: "84.14%",
+      tags: ["Science", "Mathematics", "Academic Excellence"]
     },
     {
-      icon: GraduationCap,
+      id: 2,
       title: "Higher Secondary Examination",
-      institution: "Mabarakpur A. M. Sc. High School",
+      school: "Mabarakpur A. M. Sc. High School",
       period: "2019 – 2021",
-      description: "Focused on the Science stream with a strong foundation in Physics, Chemistry, and Mathematics.",
-      achievements: ["87.6%", "Science Stream"]
+      desc: "Focused on the Science stream with a strong foundation in Physics, Chemistry, and Mathematics.",
+      grades: "87.6%",
+      tags: ["Physics", "Chemistry", "Mathematics"]
     },
     {
-      icon: GraduationCap,
-      title: "B.Tech in Computer Science & Engineering (Cyber Security Specialization)",
-      institution: "The Neotia University",
+      id: 3,
+      title: "B.Tech in CSE (Cyber Security)",
+      school: "The Neotia University",
       period: "2021 – 2025",
-      description: "In-depth study of computer science, software engineering, cybersecurity principles and Web Development.",
-      achievements: ["Current GPA: 8.49", "Cyber Security Projects", "Web Development Projects"]
+      desc: "In-depth study of computer science, software engineering, cybersecurity principles and Web Development.",
+      grades: "8.49 CGPA",
+      tags: ["Cyber Security", "Web Development", "Algorithms"]
     }
   ];
 
   return (
-    <section 
-      id="journey" 
-      className="py-20 min-h-screen relative overflow-hidden"
-      style={{
-        background: 'linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(26, 11, 30) 25%, rgb(27, 16, 31) 60%, rgb(0, 0, 0) 100%)',
-        position: 'relative',
-        zIndex: 1
-      }}
+    <section
+      id="journey"
+      className="py-20 min-h-screen relative overflow-hidden flex items-center"
+      style={{ backgroundColor: 'rgb(12 9 13)' }}
     >
       <ParticlesBackground />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Vertical Energy Stream - lowered opacity for subtle effect */}
+      <div className="absolute inset-0 opacity-40">
+        <EnergyBeamCanvas />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            My <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Journey</span>
-          </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full"></div>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            The educational path that shaped my development career
-          </p>
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold text-white mb-6 font-display"
+          >
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Journey</span>
+          </motion.h2>
+          <div className="h-1 w-24 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto mb-6 rounded-full shadow-[0_0_15px_rgba(6,182,212,0.6)]" />
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-lg text-gray-300 max-w-2xl mx-auto"
+          >
+            The educational path that shaped my technical foundation
+          </motion.p>
         </div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className={`absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full ${isDark ? 'bg-blue-800' : 'bg-blue-200'}`}></div>
-
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {education.map((item, index) => (
-            <div key={index} className={`relative flex items-center mb-12 ${
-              index % 2 === 0 ? 'flex-row-reverse' : ''
-            }`}>
-              {/* Timeline dot */}
-              <div className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 ${isDark ? 'border-gray-900' : 'border-white'} shadow-lg z-10`}></div>
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="h-full"
+            >
+              <motion.div
+                whileHover={{ scale: 1.03, translateY: -5 }}
+                className="relative group h-full"
+              >
+                {/* Glassmorph Card - Removed group-hover border color */}
+                {/* Glassmorph Card - Neutral Black Background */}
+                <div className="relative h-full bg-transparent backdrop-blur-xl border border-white/10 p-6 rounded-2xl shadow-xl overflow-hidden transition-all duration-300 flex flex-col">
 
-              {/* Content */}
-              <div className={`w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
-                <div className="bg-[#170a1b] border border-purple-900/50 p-6 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer">
-                  <div className="flex items-center mb-4">
-                    <div className="p-3 bg-purple-900/50 rounded-lg group-hover:bg-purple-600 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
-                      <item.icon className="h-6 w-6 text-purple-400 group-hover:text-white transition-all duration-300" />
-                    </div>
-                    <div className="ml-4">
-                      <h3 className="text-lg font-semibold text-white group-hover:text-purple-400 transition-all duration-300">{item.title}</h3>
-                      <p className="text-purple-300 font-medium group-hover:text-purple-200 transition-all duration-300">{item.institution}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="mb-4">
-                    <span className="inline-block bg-purple-900/50 text-purple-200 text-sm px-3 py-1 rounded-full group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-purple-800 group-hover:text-white transition-all duration-300">
+                  {/* Top Accent Line - Static */}
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500/50 to-transparent opacity-50"></div>
+
+                  {/* Decorative Blob - Static (Blue instead of Purple) */}
+                  <div className="absolute -top-10 -right-10 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl transition-all duration-500" />
+
+                  <div className="flex justify-between items-center mb-4 gap-3 relative z-10">
+                    {/* Static Badge */}
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-cyan-300 border border-white/10 transition-colors">
+                      <Calendar className="w-3 h-3 mr-1.5" />
                       {item.period}
                     </span>
+                    <span className="inline-flex items-center gap-1.5 text-sm text-purple-300 font-medium">
+                      <Award className="w-4 h-4" />
+                      {item.grades}
+                    </span>
                   </div>
-                  
-                  <p className="text-gray-300 mb-4 leading-relaxed group-hover:text-gray-100 transition-all duration-300">{item.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {item.achievements.map((achievement, i) => (
-                      <span key={i} className="inline-block bg-purple-900/50 text-purple-300 text-xs px-2 py-1 rounded-full group-hover:bg-purple-600 group-hover:text-white group-hover:scale-105 transition-all duration-300">
-                        {achievement}
+
+                  {/* Static Title Color */}
+                  <h3 className="text-xl font-bold text-white mb-2 font-display relative z-10">
+                    {item.title}
+                  </h3>
+
+                  <div className="flex items-center text-gray-400 text-sm mb-4 relative z-10">
+                    <MapPin className="w-4 h-4 mr-2 text-purple-500" />
+                    {item.school}
+                  </div>
+
+                  {/* Static Border Color */}
+                  <p className="text-gray-300 text-sm leading-relaxed mb-6 border-l-2 border-white/5 pl-4 transition-colors relative z-10 flex-grow">
+                    {item.desc}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 relative z-10">
+                    {item.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="text-xs px-3 py-1 bg-black/40 border border-white/5 rounded-lg text-gray-400 transition-all duration-300"
+                      >
+                        #{tag}
                       </span>
                     ))}
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,10 +1,10 @@
-import React from 'react';
-import { ExternalLink, Github, Calendar, Tag } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ExternalLink, Github, Calendar, Tag, Lock } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import ParticlesBackground from './ParticlesBackground';
 
 const Projects = () => {
-  const { isDark } = useTheme();
+  useTheme();
 
   const projects = [
     {
@@ -31,7 +31,8 @@ const Projects = () => {
     {
       title: "University Management System",
       description: "An integrated platform built with Laravel to simplify student enrollment, financial tracking, and administrative tasks. It provides multi-step registration, hierarchical address mapping, advanced search, fee scheduling, and secure authentication with optional two-factor verification for enhanced security.",
-      image: "https://images.pexels.com/photos/159775/library-la-trobe-study-students-159775.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/universitymanagementsystem.png",
+      imageFit: "object-contain bg-black/20",
       technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "jQuery", "CSS"],
       features: [
         "👥 User & Role-based Access Control",
@@ -51,106 +52,146 @@ const Projects = () => {
       date: "2025"
     },
     {
-      title: "Blog Management System",
-      description: "A content management system for bloggers with rich text editor, SEO optimization, and social media integration.",
-      image: "https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["Symfony", "PostgreSQL", "Twig", "Redis"],
-      features: ["Rich Text Editor", "SEO Optimization", "Social Integration", "Comment System"],
-      github: "#",
-      live: "#",
-      date: "2022"
+      title: "Portfolio Website",
+      description: "A modern, interactive developer portfolio built with React, TypeScript, and Tailwind CSS. Features a custom AI chatbot (G-Insight) powered by StepFun API and RAG architecture for intelligent interaction.",
+      image: "/portfolioProject-image.png",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Vite", "Framer Motion", "StepFun API"],
+      features: ["AI Chatbot with RAG", "Glassmorphism UI", "Responsive Design", "Smart Search"],
+      github: "https://github.com/ganesh309/PortfolioMain",
+      live: "https://ganeshghorai.in/",
+      date: "2026"
     },
     {
-      title: "API Gateway Service",
-      description: "A microservices API gateway with rate limiting, authentication, and request routing built with modern PHP architecture.",
-      image: "https://images.pexels.com/photos/1181216/pexels-photo-1181216.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["PHP", "Docker", "Redis", "JWT"],
-      features: ["Rate Limiting", "Authentication", "Request Routing", "Monitoring"],
-      github: "#",
-      live: "#",
-      date: "2022"
+      title: "Gangasagar Tourism",
+      description: "A comprehensive tourism website dedicated to Gangasagar Island. It allows tourists to book cars and hotels, view famous places, and access essential travel information. This project focuses on providing a user-friendly interface for travelers planning their visit to the pilgrimage site.",
+      image: "/Tourism.png",
+      technologies: ["TypeScript", "JavaScript", "HTML", "CSS"],
+      features: ["Car Booking", "Hotel Booking", "Places to Visit", "Travel Information"],
+      github: "", // Confidential
+      live: "https://www.gangasagardham.com/",
+      date: "2023"
     }
   ];
 
   return (
-    <section 
-      id="projects" 
-      className="py-20 min-h-screen relative overflow-hidden"
-      style={{
-        background: 'linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(26, 11, 30) 25%, rgb(27, 16, 31) 60%, rgb(0, 0, 0) 100%)',
-        position: 'relative',
-        zIndex: 1
-      }}
+    <section
+      id="projects"
+      className="py-20 min-h-screen relative overflow-hidden bg-[rgb(12,9,13)]"
     >
       <ParticlesBackground />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Featured <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Projects</span>
-          </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full"></div>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-bold text-white mb-4"
+          >
+            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 animate-pulse">Projects</span>
+          </motion.h2>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            className="h-1 w-24 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto mb-6 rounded-full shadow-[0_0_15px_rgba(6,182,212,0.5)]"
+          />
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-lg text-gray-300 max-w-2xl mx-auto"
+          >
             A collection of my recent work and contributions
-          </p>
+          </motion.p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="bg-[#1a0b1e] border border-purple-900/50 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer hover:border-purple-500/50">
-              <div className="relative">
-                <img 
-                  src={project.image} 
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
+              className="bg-[rgb(54,40,61)]/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_0_40px_rgba(124,58,237,0.15)] hover:border-cyan-500/30 transition-all duration-300 group"
+            >
+              <div className="relative overflow-hidden h-48 sm:h-64">
+                <img
+                  src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-all duration-500"
+                  className={`w-full h-full ${(project as any).imageFit || 'object-cover'} group-hover:scale-110 transition-transform duration-500`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                <div className="absolute top-4 right-4 bg-purple-900/80 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-purple-200 group-hover:bg-purple-600 group-hover:text-white group-hover:scale-110 transition-all duration-300">
-                  <Calendar className="h-4 w-4 inline mr-1" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0c090d] via-[#0c090d]/60 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
+
+                <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-cyan-300 border border-cyan-500/30 flex items-center gap-1">
+                  <Calendar className="w-3 h-3" />
                   {project.date}
                 </div>
               </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-purple-400 transition-all duration-300">{project.title}</h3>
-                <p className="text-gray-300 mb-4 leading-relaxed group-hover:text-gray-100 transition-all duration-300">{project.description}</p>
-                
-                <div className="mb-4">
-                  <div className="flex flex-wrap gap-2 mb-3">
+
+              <div className="p-6 md:p-8 relative">
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-purple-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors relative z-10">
+                  {project.title}
+                </h3>
+                <p className="text-gray-300 mb-6 leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all duration-300 relative z-10">
+                  {project.description}
+                </p>
+
+                <div className="space-y-4 mb-8 relative z-10">
+                  <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, i) => (
-                      <span key={i} className="inline-block bg-purple-900/50 text-purple-200 text-xs px-2 py-1 rounded-full group-hover:bg-purple-600 group-hover:text-white group-hover:scale-105 transition-all duration-300">
-                        <Tag className="h-3 w-3 inline mr-1" />
+                      <span key={i} className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-cyan-900/20 text-cyan-300 text-xs font-medium border border-cyan-500/20 group-hover:bg-cyan-500/20 transition-colors shadow-[0_0_5px_rgba(6,182,212,0.1)]">
+                        <Tag className="w-3 h-3" />
                         {tech}
                       </span>
                     ))}
                   </div>
-                  
+
                   <div className="flex flex-wrap gap-2">
-                    {project.features.map((feature, i) => (
-                      <span key={i} className="inline-block bg-gray-800/70 text-gray-300 text-xs px-2 py-1 rounded-full group-hover:bg-purple-600 group-hover:text-white group-hover:scale-105 transition-all duration-300">
+                    {project.features.slice(0, 4).map((feature, i) => (
+                      <span key={i} className="text-xs text-gray-400 bg-white/5 px-2 py-1 rounded border border-white/5 hover:border-purple-500/30 transition-colors">
                         {feature}
                       </span>
                     ))}
+                    {project.features.length > 4 && (
+                      <span className="text-xs text-gray-500 px-2 py-1">+ {project.features.length - 4} more</span>
+                    )}
                   </div>
                 </div>
-                
-                <div className="flex space-x-4">
-                  <a 
-                    href={project.github}
-                    className="flex items-center px-4 py-2 bg-purple-900/80 text-white rounded-lg hover:bg-purple-700 hover:scale-105 hover:shadow-lg transition-all duration-300 group/btn border border-purple-700/50 hover:border-purple-500"
-                  >
-                    <Github className="h-4 w-4 mr-2 group-hover/btn:rotate-12 transition-all duration-300" />
-                    Code
-                  </a>
-                  <a 
+
+                <div className="flex items-center gap-4 pt-4 border-t border-white/10 relative z-10">
+                  {project.github ? (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center px-4 py-2 bg-white/5 text-white rounded-xl font-medium hover:bg-white/10 transition-all duration-300 group/btn border border-white/10 hover:border-cyan-500/30 hover:shadow-[0_0_15px_rgba(6,182,212,0.1)]"
+                    >
+                      <Github className="w-4 h-4 mr-2 group-hover/btn:text-cyan-400" />
+                      Code
+                    </a>
+                  ) : (
+                    <div className="flex-1 flex items-center justify-center px-4 py-2 bg-white/5 text-gray-500 rounded-xl font-medium border border-white/5 cursor-not-allowed">
+                      <Lock className="w-4 h-4 mr-2" />
+                      Confidential
+                    </div>
+                  )}
+                  <a
                     href={project.live}
-                    className="flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg hover:from-purple-700 hover:to-purple-800 hover:scale-105 hover:shadow-lg transition-all duration-300 group/btn border border-purple-500/50"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center px-4 py-2 bg-[#133f7a] text-white rounded-xl font-medium hover:bg-[#1a529e] transition-all duration-300 group/btn"
                   >
-                    <ExternalLink className="h-4 w-4 mr-2 group-hover/btn:rotate-12 transition-all duration-300" />
+                    <ExternalLink className="w-4 h-4 mr-2" />
                     Live Demo
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

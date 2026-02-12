@@ -9,67 +9,26 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+
+import AIChat from './components/AIChat';
+
 function App() {
   // Handle scroll to hash on initial load and navigation
   useEffect(() => {
-    const scrollToElement = (hash: string) => {
-      const element = document.getElementById(hash);
-      if (!element) return false;
-
-      const headerHeight = 80;
-      
-      // Use native smooth scroll with offset
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-      
-      // Manually adjust for header
-      window.scrollBy(0, -headerHeight);
-      return true;
-    };
-
-    const scrollToHash = () => {
-      const hash = window.location.hash.substring(1);
-      if (!hash) return;
-
-      // Try to scroll immediately
-      if (!scrollToElement(hash)) {
-        // If element not found, try again after a short delay
-        const retryInterval = setInterval(() => {
-          if (scrollToElement(hash)) {
-            clearInterval(retryInterval);
-          }
-        }, 100);
-
-        // Stop trying after 2 seconds
-        setTimeout(() => clearInterval(retryInterval), 2000);
-      }
-    };
-
-    // Set up event listeners
-    window.addEventListener('load', scrollToHash);
-    window.addEventListener('hashchange', scrollToHash);
-    
-    // Initial check
-    scrollToHash();
-    
-    // Clean up
-    return () => {
-      window.removeEventListener('load', scrollToHash);
-      window.removeEventListener('hashchange', scrollToHash);
-    };
+    // ... existing code ...
   }, []);
 
   return (
     <div className="min-h-screen">
+
+      <AIChat />
       <Header />
       <section id="home">
         <Hero />
       </section>
       <section id="about">
         <About />
-        
+
         {/* Divider with decorative element */}
         <div className="relative py-3 overflow-hidden">
           <div className="absolute inset-0 flex items-center justify-center">
@@ -81,7 +40,7 @@ function App() {
             </div>
           </div>
         </div>
-        
+
         <Journey />
       </section>
 

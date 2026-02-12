@@ -1,127 +1,189 @@
-import React from 'react';
-import { Code, Database, Globe, Server, Wrench, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Code, Database, Server, Wrench } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
-import ParticlesBackground from './ParticlesBackground';
+import EnergyCanvas from './EnergyCanvas';
+
+const CircularProgress = ({
+  percentage,
+  color,
+  icon
+}: {
+  percentage: number;
+  color: string;
+  icon: string;
+}) => {
+  const radius = 40;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = circumference - (percentage / 100) * circumference;
+
+  return (
+    <div className="relative w-32 h-32 flex items-center justify-center group/circle">
+      {/* SVG Ring */}
+      <svg className="transform -rotate-90 w-full h-full">
+        {/* Background Track */}
+        <circle
+          cx="64"
+          cy="64"
+          r={radius}
+          stroke="currentColor"
+          strokeWidth="6"
+          fill="transparent"
+          className="text-gray-800/50"
+        />
+        {/* Animated Progress Circle */}
+        <motion.circle
+          initial={{ strokeDashoffset: circumference }}
+          whileInView={{ strokeDashoffset }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          cx="64"
+          cy="64"
+          r={radius}
+          stroke="currentColor"
+          strokeWidth="6"
+          fill="transparent"
+          strokeDasharray={circumference}
+          strokeLinecap="round"
+          className={`${color} drop-shadow-[0_0_8px_currentColor]`}
+        />
+      </svg>
+
+      {/* Central Content */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative w-24 h-24 flex items-center justify-center rounded-full bg-[#1a0b1e]/80 backdrop-blur-sm shadow-inner transition-all duration-300 overflow-hidden border border-white/5 group-hover/circle:border-purple-500/30">
+          {/* Icon (Default Visible) */}
+          <motion.div
+            className="absolute z-10 p-2"
+            whileHover={{ opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.3 }}
+          >
+            <img src={icon} alt="tech icon" className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
+          </motion.div>
+
+          {/* Percentage (Hover Reveal) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileHover={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+            className="absolute z-20 flex flex-col items-center justify-center w-full h-full bg-black/90 rounded-full"
+          >
+            <span className={`text-xl font-bold ${color.replace('text-', '')} text-white`}>
+              {percentage}%
+            </span>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Skills = () => {
-  const { isDark } = useTheme();
+  useTheme();
 
   const skillCategories = [
     {
       icon: Code,
-      title: "Programming Languages",
+      title: "Frontend",
       skills: [
-        { name: "C", level: 80 },
-        { name: "Java (OOP)", level: 85 },
-        { name: "PHP", level: 90 },
-        { name: "JavaScript", level: 85 }
-      ]
-    },
-    {
-      icon: Wrench,
-      title: "Tools & Technologies",
-      skills: [
-        { name: "Linux", level: 85 },
-        { name: "Docker", level: 80 },
-        { name: "Git", level: 90 }
+        { name: "React", level: 90, icon: "https://skillicons.dev/icons?i=react", color: "text-cyan-400" },
+        { name: "TypeScript", level: 85, icon: "https://skillicons.dev/icons?i=ts", color: "text-blue-500" },
+        { name: "Tailwind", level: 95, icon: "https://skillicons.dev/icons?i=tailwind", color: "text-cyan-300" },
+        { name: "JavaScript", level: 90, icon: "https://skillicons.dev/icons?i=js", color: "text-yellow-400" }
       ]
     },
     {
       icon: Server,
-      title: "Frameworks",
+      title: "Backend",
       skills: [
-        { name: "Laravel", level: 90 },
-        { name: "React", level: 85 }
+        { name: "PHP", level: 95, icon: "https://skillicons.dev/icons?i=php", color: "text-indigo-400" },
+        { name: "Laravel", level: 90, icon: "https://skillicons.dev/icons?i=laravel", color: "text-red-500" },
+        { name: "Node.js", level: 80, icon: "https://skillicons.dev/icons?i=nodejs", color: "text-green-500" },
+        { name: "REST API", level: 90, icon: "https://skillicons.dev/icons?i=postman", color: "text-orange-400" }
       ]
     },
     {
       icon: Database,
-      title: "Databases",
+      title: "Database",
       skills: [
-        { name: "MySQL", level: 90 }
+        { name: "MySQL", level: 90, icon: "https://skillicons.dev/icons?i=mysql", color: "text-blue-300" },
+        { name: "PostgreSQL", level: 80, icon: "https://skillicons.dev/icons?i=postgres", color: "text-blue-400" },
+        { name: "Redis", level: 70, icon: "https://skillicons.dev/icons?i=redis", color: "text-red-400" },
+        { name: "MongoDB", level: 65, icon: "https://skillicons.dev/icons?i=mongo", color: "text-green-400" }
+      ]
+    },
+    {
+      icon: Wrench,
+      title: "DevOps",
+      skills: [
+        { name: "Docker", level: 85, icon: "https://skillicons.dev/icons?i=docker", color: "text-blue-500" },
+        { name: "Git", level: 90, icon: "https://skillicons.dev/icons?i=git", color: "text-orange-500" },
+        { name: "AWS", level: 60, icon: "https://skillicons.dev/icons?i=aws", color: "text-yellow-500" },
+        { name: "Linux", level: 80, icon: "https://skillicons.dev/icons?i=linux", color: "text-yellow-400" }
       ]
     }
   ];
 
   return (
-    <section 
-      id="skills" 
-      className="py-20 min-h-screen relative overflow-hidden"
-      style={{
-        background: 'linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(26, 11, 30) 25%, rgb(27, 16, 31) 60%, rgb(0, 0, 0) 100%)',
-        position: 'relative',
-        zIndex: 1
-      }}
+    <section
+      id="skills"
+      className="py-20 min-h-screen relative overflow-hidden bg-[rgb(12,9,13)]"
     >
-      <ParticlesBackground />
+      <div className="absolute inset-0 opacity-80 pointer-events-none">
+        <EnergyCanvas showWaves={false} />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            My <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Skills</span> & <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">Expertise</span>
-          </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full"></div>
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-bold text-white mb-4"
+          >
+            Skills <span className="text-gray-400">&</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 animate-pulse">Expertise</span>
+          </motion.h2>
+          <div className="h-1 w-24 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto mb-6 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Technologies and tools I work with
+            Hover over the skills to see proficiency details
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skillCategories.map((category, index) => (
-            <div key={index} className="bg-[#1a0b1e] border border-purple-900/50 p-6 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer hover:border-purple-500/50">
-              <div className="flex items-center mb-6">
-                <div className="p-3 bg-purple-900/50 rounded-lg group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-purple-800 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
-                  <category.icon className="h-6 w-6 text-purple-400 group-hover:text-white transition-all duration-300" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {skillCategories.map((category, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="bg-[rgb(54,40,61)]/5 backdrop-blur-lg border border-white/10 p-6 rounded-2xl shadow-xl hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:border-cyan-500/30 transition-all duration-300 group"
+            >
+              <div className="flex items-center mb-8 border-b border-white/10 pb-4">
+                <div className="p-2 bg-cyan-500/10 rounded-lg mr-3 border border-cyan-500/20 group-hover:border-cyan-500/50 transition-colors">
+                  <category.icon className="w-5 h-5 text-cyan-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white ml-3 group-hover:text-purple-400 transition-all duration-300">{category.title}</h3>
+                <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">{category.title}</h3>
               </div>
 
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="group/skill">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-all duration-300">{skill.name}</span>
-                      <span className="text-sm text-purple-300 group-hover:text-white group-hover:font-semibold transition-all duration-300">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-800 rounded-full h-2 group-hover:h-3 transition-all duration-300 overflow-hidden relative">
-                      <div 
-                        className="bg-gradient-to-r from-purple-500 to-purple-600 h-full rounded-full transition-all duration-1000 ease-out group-hover:shadow-lg group-hover:from-purple-600 group-hover:to-purple-700 relative overflow-hidden"
-                        style={{ width: `${skill.level}%` }}
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 animate-wave"></div>
-                      </div>
-                    </div>
+              <div className="grid grid-cols-2 gap-4">
+                {category.skills.map((skill, i) => (
+                  <div key={i} className="flex flex-col items-center">
+                    <CircularProgress
+                      percentage={skill.level}
+                      color={skill.color}
+                      icon={skill.icon}
+                    />
+                    <span className="mt-2 text-sm font-medium text-gray-300 text-center group-hover:text-white transition-colors">
+                      {skill.name}
+                    </span>
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
 };
-
-// Add this to your global CSS or in a style tag
-const waveKeyframes = `
-  @keyframes wave {
-    0% {
-      transform: translateX(-100%) skew(20deg);
-    }
-    100% {
-      transform: translateX(100%) skew(20deg);
-    }
-  }
-`;
-
-// Add the animation styles
-const styleElement = document.createElement('style');
-styleElement.textContent = `
-  .animate-wave {
-    animation: wave 1.5s ease-in-out infinite;
-  }
-  ${waveKeyframes}
-`;
-
-document.head.appendChild(styleElement);
 
 export default Skills;
