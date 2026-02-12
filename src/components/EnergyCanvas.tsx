@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const EnergyCanvas = ({ showWaves = true }: { showWaves?: boolean }) => {
+const EnergyCanvas = ({ showWaves = true, shouldAnimate = true }: { showWaves?: boolean; shouldAnimate?: boolean }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
@@ -12,16 +12,7 @@ const EnergyCanvas = ({ showWaves = true }: { showWaves?: boolean }) => {
 
         let width = window.innerWidth;
         let height = window.innerHeight;
-
-        const resize = () => {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width;
-            canvas.height = height;
-        };
-
-        window.addEventListener('resize', resize);
-        resize();
+        let animationFrameId: number;
 
         // Configuration
         const gridSpacing = 50;
@@ -83,10 +74,9 @@ const EnergyCanvas = ({ showWaves = true }: { showWaves?: boolean }) => {
                 ctx.stroke();
             }
 
-            // Horizontal lines (curved for perspective effect)
+            // Horizontal lines
             for (let y = 0; y <= height; y += gridSpacing) {
                 ctx.beginPath();
-                // Simple distinct horizontal lines for now to simulate the "grid" look
                 ctx.moveTo(0, y);
                 ctx.lineTo(width, y);
                 ctx.stroke();
@@ -131,15 +121,14 @@ const EnergyCanvas = ({ showWaves = true }: { showWaves?: boolean }) => {
             ctx.stroke();
         };
 
-
-        const animate = () => {
+        const drawFrame = () => {
             ctx.fillStyle = 'rgb(12, 9, 13)'; // Clear with BG color
             ctx.fillRect(0, 0, width, height);
 
             drawGrid();
 
             particles.forEach(p => {
-                p.update();
+                if (shouldAnimate) p.update(); // Only update positions if animating
                 p.draw(ctx);
             });
 
@@ -153,17 +142,36 @@ const EnergyCanvas = ({ showWaves = true }: { showWaves?: boolean }) => {
             gradient.addColorStop(1, 'rgba(12, 9, 13, 0.8)');
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, width, height);
-
-            time += waveSpeed;
-            requestAnimationFrame(animate);
         };
+
+        const animate = () => {
+            drawFrame();
+            time += waveSpeed;
+            if (shouldAnimate) {
+                animationFrameId = requestAnimationFrame(animate);
+            }
+        };
+
+        const resize = () => {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            if (!shouldAnimate) {
+                requestAnimationFrame(drawFrame); // Redraw once on resize if static
+            }
+        };
+
+        window.addEventListener('resize', resize);
+        resize();
 
         animate();
 
         return () => {
             window.removeEventListener('resize', resize);
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
         };
-    }, []);
+    }, [shouldAnimate, showWaves]);
 
     return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-0" />;
 };

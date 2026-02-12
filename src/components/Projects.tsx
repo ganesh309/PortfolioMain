@@ -59,7 +59,7 @@ const Projects = () => {
       features: ["AI Chatbot with RAG", "Glassmorphism UI", "Responsive Design", "Smart Search"],
       github: "https://github.com/ganesh309/PortfolioMain",
       live: "https://ganeshghorai.in/",
-      date: "2026"
+      date: "2025"
     },
     {
       title: "Gangasagar Tourism",

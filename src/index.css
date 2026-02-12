@@ -151,6 +151,7 @@ header {
 /* Smooth scrolling for the entire page */
 html {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 /* Custom scrollbar */

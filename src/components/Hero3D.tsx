@@ -1,11 +1,28 @@
 import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
-import * as random from 'maath/random/dist/maath-random.esm';
+
 
 const Stars = (props: any) => {
     const ref = useRef<any>();
-    const sphere = useMemo(() => random.inSphere(new Float32Array(5000), { radius: 1.5 }), []);
+
+    // Manual star generation to avoid maath NaN issues
+    const sphere = useMemo(() => {
+        const positions = new Float32Array(5000);
+        for (let i = 0; i < 5000; i += 3) {
+            const r = 1.5;
+            const u = Math.random();
+            const v = Math.random();
+            const theta = 2 * Math.PI * u;
+            const phi = Math.acos(2 * v - 1);
+            const radius = Math.cbrt(Math.random()) * r;
+
+            positions[i] = radius * Math.sin(phi) * Math.cos(theta);
+            positions[i + 1] = radius * Math.sin(phi) * Math.sin(theta);
+            positions[i + 2] = radius * Math.cos(phi);
+        }
+        return positions;
+    }, []);
 
     useFrame((state, delta) => {
         if (ref.current) {

@@ -32,7 +32,7 @@ function App() {
         {/* Divider with decorative element */}
         <div className="relative py-3 overflow-hidden">
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-1/3 h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
+            <div className="w-3/4 md:w-1/3 h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
           </div>
           <div className="relative flex justify-center">
             <div className="px-2 text-[10px] text-purple-600 bg-white dark:bg-gray-900 dark:text-purple-300 rounded-full border border-purple-200 dark:border-purple-800">
@@ -47,7 +47,7 @@ function App() {
       {/* Divider between Journey and Skills */}
       <div className="relative py-3 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-1/3 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
+          <div className="w-3/4 md:w-1/3 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
         </div>
         <div className="relative flex justify-center">
           <div className="px-2 text-[10px] text-blue-600 bg-white dark:bg-gray-900 dark:text-blue-300 rounded-full border border-blue-200 dark:border-blue-800">
@@ -63,7 +63,7 @@ function App() {
       {/* Divider between Skills and Projects */}
       <div className="relative py-3 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-1/3 h-px bg-gradient-to-r from-transparent via-orange-400 to-transparent"></div>
+          <div className="w-3/4 md:w-1/3 h-px bg-gradient-to-r from-transparent via-orange-400 to-transparent"></div>
         </div>
         <div className="relative flex justify-center">
           <div className="px-2 text-[10px] text-orange-600 bg-white dark:bg-gray-900 dark:text-orange-300 rounded-full border border-orange-200 dark:border-orange-800">
@@ -79,7 +79,7 @@ function App() {
       {/* Divider between Projects and Experience */}
       <div className="relative py-3 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-1/3 h-px bg-gradient-to-r from-transparent via-teal-400 to-transparent"></div>
+          <div className="w-3/4 md:w-1/3 h-px bg-gradient-to-r from-transparent via-teal-400 to-transparent"></div>
         </div>
         <div className="relative flex justify-center">
           <div className="px-2 text-[10px] text-teal-600 bg-white dark:bg-gray-900 dark:text-teal-300 rounded-full border border-teal-200 dark:border-teal-800">
@@ -95,7 +95,7 @@ function App() {
       {/* Divider between Experience and Contact */}
       <div className="relative py-3 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-1/3 h-px bg-gradient-to-r from-transparent via-pink-400 to-transparent"></div>
+          <div className="w-3/4 md:w-1/3 h-px bg-gradient-to-r from-transparent via-pink-400 to-transparent"></div>
         </div>
         <div className="relative flex justify-center">
           <div className="px-2 text-[10px] text-pink-600 bg-white dark:bg-gray-900 dark:text-pink-300 rounded-full border border-pink-200 dark:border-pink-800">

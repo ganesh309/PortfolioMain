@@ -43,7 +43,7 @@ const CircularProgress = ({
           fill="transparent"
           strokeDasharray={circumference}
           strokeLinecap="round"
-          className={`${color} drop-shadow-[0_0_8px_currentColor]`}
+          className={`${color} md:drop-shadow-[0_0_8px_currentColor]`}
         />
       </svg>
 
@@ -56,7 +56,7 @@ const CircularProgress = ({
             whileHover={{ opacity: 0, scale: 0.5 }}
             transition={{ duration: 0.3 }}
           >
-            <img src={icon} alt="tech icon" className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
+            <img src={icon} alt="tech icon" className="w-10 h-10 object-contain md:drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
           </motion.div>
 
           {/* Percentage (Hover Reveal) */}
@@ -128,7 +128,7 @@ const Skills = () => {
       className="py-20 min-h-screen relative overflow-hidden bg-[rgb(12,9,13)]"
     >
       <div className="absolute inset-0 opacity-80 pointer-events-none">
-        <EnergyCanvas showWaves={false} />
+        <EnergyCanvas showWaves={false} shouldAnimate={false} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -155,7 +155,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-[rgb(54,40,61)]/5 backdrop-blur-lg border border-white/10 p-6 rounded-2xl shadow-xl hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:border-cyan-500/30 transition-all duration-300 group"
+              className="bg-[rgb(54,40,61)]/5 md:backdrop-blur-lg border border-white/10 p-6 rounded-2xl shadow-xl hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:border-cyan-500/30 transition-all duration-300 group"
             >
               <div className="flex items-center mb-8 border-b border-white/10 pb-4">
                 <div className="p-2 bg-cyan-500/10 rounded-lg mr-3 border border-cyan-500/20 group-hover:border-cyan-500/50 transition-colors">
