@@ -1,4 +1,4 @@
-import { knowledgeBase } from './knowledgeBase';
+import { knowledgeBase } from './knowledgeBase.js';
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
