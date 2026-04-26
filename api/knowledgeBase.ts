@@ -195,7 +195,7 @@ Portfolio Website (This Website).
 A modern, interactive developer portfolio built with React, TypeScript, and Tailwind CSS.
 
 Features:
-- Custom AI Chatbot (G-Insight) powered by StepFun API and RAG architecture
+- Custom AI Chatbot (G-Insight) powered by Advanced AI Model and RAG architecture
 - Glassmorphism UI design with neon aesthetics
 - Responsive layout for all devices
 - Smart Search functionality
